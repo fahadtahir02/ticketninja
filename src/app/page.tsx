@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import Card from './components/Card'
+import data from '../../data/db.json' 
 
 export default function Home() {
   return (
@@ -17,12 +19,12 @@ export default function Home() {
         <h2>Company Updates</h2>
       </div>
 
-      <div className='bg-white rounded-md p-4'>
-        <div className=''>
-          <p className='mb-4 '><b>New Member added</b></p>
-          <p className='mb-4'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam cumque optio facere deleniti quam iusto iure, odit quod esse eius quae magnam ratione qui nam voluptatem architecto ducimus cupiditate inventore!</p>
-        </div>
-      </div>
+      
+
+      <Card
+      ticketTitle= {data.tickets[0].title}
+      ticketDescription = {data.tickets[0].body}
+      ></Card>
 
 
 
