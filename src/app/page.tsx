@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import Card from './components/Card'
+import Card from './tickets/Card'
 import data from '../../data/db.json' 
 
 export default function Home() {
@@ -21,10 +21,7 @@ export default function Home() {
 
       
 
-      <Card
-      ticketTitle= {data.tickets[0].title}
-      ticketDescription = {data.tickets[0].body}
-      ></Card>
+      <Card></Card>
 
 
 
