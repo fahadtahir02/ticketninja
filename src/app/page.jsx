@@ -1,9 +1,32 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 import Card from './tickets/Card'
 import data from '../../data/db.json' 
+import { useEffect, useState } from 'react'
+
+
+
+
+async function getTickets(){
+  const res = await fetch('http://localhost:4000/tickets')
+
+  return res.json()
+}
+
 
 export default function Home() {
+  const [tickets, setTickets] = useState([]);
+
+  useEffect(() => { // Use useEffect to fetch tickets on component mount
+    async function fetchTickets() {
+      const fetchedTickets = await getTickets();
+      setTickets(fetchedTickets); // Update the tickets state with the fetched data
+  }fetchTickets();
+  }, []);
+
+
+  
   return (
     <main>
       <h1 className='pb-4'> Home</h1>
@@ -19,9 +42,19 @@ export default function Home() {
         <h2>Company Updates</h2>
       </div>
 
-      
+      <>
+        {tickets.map((ticket) => (
+          <div key={ticket.id}>
+            <Card
+              iterable={ticket.id}
+              headline={ticket.title}
+              body={ticket.body}
+            />
+          </div>
+        ))}
+      </> 
 
-      <Card></Card>
+      
 
 
 
