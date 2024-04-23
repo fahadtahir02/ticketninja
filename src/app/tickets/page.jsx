@@ -1,12 +1,17 @@
 // By default all components are server components
 
+import TicketLists from "./TicketLists";
+
 export default function Tickets() {
   return (
     <main>
-      <div>
-        <h1> Tickets</h1>
-        
-      </div>
+      <nav>
+        <div>
+          <h2>Tickets</h2>
+          <p><small>Currently open tickets.</small></p>
+        </div>
+      </nav>
+      <TicketLists/>
     </main>
   )
 }
